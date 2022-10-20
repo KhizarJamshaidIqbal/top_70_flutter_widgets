@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import 'Home.dart';
+import 'long_press_draggable.dart';
+
 class animated_cross_fade extends StatefulWidget {
   const animated_cross_fade({super.key});
 
@@ -33,22 +36,70 @@ class _animated_cross_fadeState extends State<animated_cross_fade> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: AnimatedCrossFade(
-          duration: Duration(seconds: 2),
-          firstChild: Container(
-            height: 200,
-            width: 200,
-            color: Colors.blueGrey,
+      body: Stack(
+        children: [
+          Center(
+            child: AnimatedCrossFade(
+              duration: Duration(seconds: 2),
+              firstChild: Container(
+                height: 200,
+                width: 200,
+                color: Colors.blueGrey,
+              ),
+              secondChild: Image(
+                image: AssetImage("Images/flutter.png"),
+                height: 200,
+                width: 200,
+              ),
+              crossFadeState:
+                  isFirst ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+            ),
           ),
-          secondChild: Image(
-            image: AssetImage("Images/flutter.png"),
-            height: 200,
-            width: 200,
-          ),
-          crossFadeState:
-              isFirst ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-        ),
+          Padding(
+            padding: EdgeInsets.only(top: 710),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  child: CircleAvatar(
+                    backgroundColor: Colors.black,
+                    radius: 20,
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => long_press_draggable(),
+                              ));
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new,
+                          color: Colors.white,
+                        )),
+                  ),
+                ),
+                Container(
+                  child: CircleAvatar(
+                    backgroundColor: Colors.black,
+                    radius: 20,
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => home(),
+                              ));
+                        },
+                        icon: const Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          color: Colors.white,
+                        )),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
