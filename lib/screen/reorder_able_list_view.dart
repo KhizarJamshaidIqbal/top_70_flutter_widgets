@@ -1,29 +1,24 @@
-// ignore_for_file: camel_case_types, implementation_imports, prefer_const_constructors, unused_import, file_names
+// ignore_for_file: implementation_imports, camel_case_types, unnecessary_import, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:top_70_flutter_widgets/screen/animated_cross_fade.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:top_70_flutter_widgets/screen/Home.dart';
 import 'package:top_70_flutter_widgets/screen/intrective_viewer.dart';
-import 'package:top_70_flutter_widgets/screen/pop_up.dart';
-import 'package:top_70_flutter_widgets/screen/reorder_able_list_view.dart';
 
-class home extends StatefulWidget {
-  const home({super.key});
+class reorder_able_list_view extends StatefulWidget {
+  const reorder_able_list_view({super.key});
 
   @override
-  State<home> createState() => _homeState();
+  State<reorder_able_list_view> createState() => _reorder_able_list_viewState();
 }
 
-class _homeState extends State<home> {
-  final List<int> iteams = List<int>.generate(30, (int index) => index);
-
+class _reorder_able_list_viewState extends State<reorder_able_list_view> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          Center(
-            child: Text("Welcome to Home!!!"),
-          ),
           Padding(
             padding: const EdgeInsets.only(top: 710),
             child: Row(
@@ -37,7 +32,7 @@ class _homeState extends State<home> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => reorder_able_list_view(),
+                              builder: (context) => Intrective_Viewer(),
                             ));
                       },
                       icon: const Icon(
@@ -53,7 +48,7 @@ class _homeState extends State<home> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => pop_up_message(),
+                              builder: (context) => home(),
                             ));
                       },
                       icon: const Icon(

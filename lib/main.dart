@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:top_70_flutter_widgets/screen/Home.dart';
 import 'package:top_70_flutter_widgets/screen/animated_cross_fade.dart';
 import 'package:top_70_flutter_widgets/screen/bottomsheet.dart';
+import 'package:top_70_flutter_widgets/screen/intrective_viewer.dart';
 import 'package:top_70_flutter_widgets/screen/long_press_draggable.dart';
 import 'package:top_70_flutter_widgets/screen/pop_up.dart';
 import 'package:top_70_flutter_widgets/screen/preferedsize.dart';
@@ -21,8 +22,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: '72 Flutter Widgets',
-      // home: home(),
-      home: animated_cross_fade(),
+      home: home(),
+        // home: Intrective_Viewer(),
     );
   }
 }
