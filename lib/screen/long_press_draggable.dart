@@ -35,14 +35,15 @@ class _long_press_draggableState extends State<long_press_draggable> {
                 image: AssetImage("Images/flutter.png"),
                 height: 200,
               ),
-              // onDragEnd: (details) {
-              //   setState(() {
-              //     double adjustment = MediaQuery.of(context).size.height -
-              //         Constraints.maxHeight;
-              //     _offset =
-              //         Offset(details.offset.dx, details.offset.dy - adjustment);
-              //   });
-              // },
+              onDragEnd: (details) {
+                setState(() {
+                  var constraints;
+                  double adjustment = MediaQuery.of(context).size.height -
+                      constraints.maxHeight;
+                  _offset =
+                      Offset(details.offset.dx, details.offset.dy - adjustment);
+                });
+              },
             ),
           ),
           Padding(
