@@ -7,7 +7,6 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:top_70_flutter_widgets/screen/intrective_viewer.dart';
 
-import 'Home.dart';
 import 'long_press_draggable.dart';
 
 class animated_cross_fade extends StatefulWidget {
@@ -23,14 +22,19 @@ class _animated_cross_fadeState extends State<animated_cross_fade> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 4), () {
+    Timer(Duration(seconds: 2), () {
       reload();
     });
   }
 
   void reload() {
     setState(() {
-      isFirst = false;
+      // isFirst = false;
+      if (isFirst) {
+        isFirst = false;
+      } else {
+        isFirst = true;
+      }
     });
   }
 
@@ -62,23 +66,21 @@ class _animated_cross_fadeState extends State<animated_cross_fade> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Container(
-                  child: CircleAvatar(
-                    backgroundColor: Colors.black,
-                    radius: 20,
-                    child: IconButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => long_press_draggable(),
-                              ));
-                        },
-                        icon: const Icon(
-                          Icons.arrow_back_ios_new,
-                          color: Colors.white,
-                        )),
-                  ),
+                CircleAvatar(
+                  backgroundColor: Colors.black,
+                  radius: 20,
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => long_press_draggable(),
+                            ));
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.white,
+                      )),
                 ),
                 CircleAvatar(
                   backgroundColor: Colors.black,
