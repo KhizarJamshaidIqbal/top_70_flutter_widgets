@@ -1,4 +1,4 @@
-// ignore_for_file: implementation_imports, camel_case_types, prefer_const_constructors, avoid_unnecessary_containers, unused_import, unused_field, prefer_final_fields, unnecessary_import
+// ignore_for_file: implementation_imports, camel_case_types, prefer_const_constructors, avoid_unnecessary_containers, unused_import, unused_field, prefer_final_fields, unnecessary_import, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';

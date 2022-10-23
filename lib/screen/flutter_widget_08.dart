@@ -1,32 +1,38 @@
-// ignore_for_file: camel_case_types, implementation_imports, prefer_const_constructors, unused_import, file_names
+// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, camel_case_types, unused_import, unnecessary_import, implementation_imports
 
 import 'package:flutter/material.dart';
-import 'package:top_70_flutter_widgets/screen/animated_cross_fade.dart';
-import 'package:top_70_flutter_widgets/screen/intrective_viewer.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:top_70_flutter_widgets/screen/Home.dart';
 import 'package:top_70_flutter_widgets/screen/pop_up.dart';
+import 'package:top_70_flutter_widgets/screen/preferedsize.dart';
 import 'package:top_70_flutter_widgets/screen/reorder_able_list_view.dart';
 
-import 'flutter_widget_08.dart';
-
-class home extends StatefulWidget {
-  const home({super.key});
+class Media_Querys extends StatefulWidget {
+  const Media_Querys({super.key});
 
   @override
-  State<home> createState() => _homeState();
+  State<Media_Querys> createState() => _Media_QuerysState();
 }
 
-class _homeState extends State<home> {
-  final List<int> iteams = List<int>.generate(30, (int index) => index);
-
+class _Media_QuerysState extends State<Media_Querys> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body:  Stack(
         children: [
           Center(
-            child: Text("Welcome to Home!!!"),
-          ),
-          Padding(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Width" + MediaQuery.of(context).size.width.toStringAsFixed(2)),
+            Text("Height" + MediaQuery.of(context).size.height.toStringAsFixed(2)),
+            Text("aspectRatio" + MediaQuery.of(context).size.aspectRatio.toStringAsFixed(2)),
+             Text(MediaQuery.of(context).orientation.toString()),
+          ],
+        ),
+      ),
+        Padding(
             padding: const EdgeInsets.only(top: 710),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -39,7 +45,7 @@ class _homeState extends State<home> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Media_Querys(),
+                              builder: (context) => reorder_able_list_view(),
                             ));
                       },
                       icon: const Icon(
@@ -55,7 +61,7 @@ class _homeState extends State<home> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => pop_up_message(),
+                              builder: (context) => home(),
                             ));
                       },
                       icon: const Icon(

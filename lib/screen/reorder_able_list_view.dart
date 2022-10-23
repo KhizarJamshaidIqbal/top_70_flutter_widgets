@@ -6,6 +6,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:top_70_flutter_widgets/screen/Home.dart';
 import 'package:top_70_flutter_widgets/screen/intrective_viewer.dart';
 
+import 'flutter_widget_08.dart';
+
 class reorder_able_list_view extends StatefulWidget {
   const reorder_able_list_view({super.key});
 
@@ -48,7 +50,7 @@ class _reorder_able_list_viewState extends State<reorder_able_list_view> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => home(),
+                              builder: (context) => Media_Querys(),
                             ));
                       },
                       icon: const Icon(
